@@ -1,0 +1,14 @@
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+model user {
+  uuid     String  @id @default(uuid()) @map("_id")
+  name     String
+  email    String
+  password String
+  avatar   String?
+
+  userTokens userTokens[]
+}

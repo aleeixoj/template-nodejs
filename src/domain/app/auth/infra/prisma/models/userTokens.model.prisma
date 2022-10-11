@@ -1,0 +1,9 @@
+model userTokens {
+  uuid      String @id @default(uuid()) @map("_id")
+  uuid_user String
+
+  refresh_token String
+  expires_date  DateTime
+
+  user user @relation(fields: [uuid_user], references: [uuid])
+}
